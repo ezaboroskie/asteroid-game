@@ -94,10 +94,12 @@
             x: gameSpace.x + gameSpace.size / 2,
             y: gameSpace.y + gameSpace.size - 30,
             width: 40,
-            height: 20,
+            height: 40,
             speed: 200, // Adjusted speed for consistent movement
             direction: 0,
+            sprite: new Image(),
         };
+        ship.sprite.src = 'ship-sprite-removebg-preview.png'; // Load the sprite image
 
         let counter = 0; // Tracks asteroids avoided
         let level = 1; // Current level
@@ -164,13 +166,7 @@
         }
 
         function drawShip() {
-            ctx.fillStyle = '#ffffff';
-            ctx.beginPath();
-            ctx.moveTo(ship.x, ship.y);
-            ctx.lineTo(ship.x - ship.width / 2, ship.y + ship.height);
-            ctx.lineTo(ship.x + ship.width / 2, ship.y + ship.height);
-            ctx.closePath();
-            ctx.fill();
+            ctx.drawImage(ship.sprite, ship.x - ship.width / 2, ship.y, ship.width, ship.height);
         }
 
         function drawBullets() {
