@@ -101,6 +101,9 @@
         };
         ship.sprite.src = 'ship-sprite-removebg-preview.png'; // Load the sprite image
 
+        const asteroidSprite = new Image();
+        asteroidSprite.src = 'asteroid-sprite-bg-removed.png';
+
         let counter = 0; // Tracks asteroids avoided
         let level = 1; // Current level
         let isGameOver = false;
@@ -154,14 +157,12 @@
         function drawSquares() {
             squares.forEach(square => {
                 if (square.type === 'normal') {
-                    ctx.fillStyle = '#ff0000';
+                    ctx.drawImage(asteroidSprite, square.x, square.y, square.size, square.size);
                 } else if (square.type === 'plus') {
                     ctx.fillStyle = 'green';
                     ctx.font = '40px Arial';
                     ctx.fillText('+', square.x + square.size / 8, square.y + square.size);
-                    return;
                 }
-                ctx.fillRect(square.x, square.y, square.size, square.size);
             });
         }
 
