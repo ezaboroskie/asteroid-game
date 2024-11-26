@@ -104,6 +104,9 @@
         const asteroidSprite = new Image();
         asteroidSprite.src = 'asteroid-sprite-bg-removed.png';
 
+        const powerUpSprite = new Image();
+        powerUpSprite.src = 'power-up-sprite.png';
+
         let counter = 0; // Tracks asteroids avoided
         let level = 1; // Current level
         let isGameOver = false;
@@ -159,9 +162,7 @@
                 if (square.type === 'normal') {
                     ctx.drawImage(asteroidSprite, square.x, square.y, square.size, square.size);
                 } else if (square.type === 'plus') {
-                    ctx.fillStyle = 'green';
-                    ctx.font = '40px Arial';
-                    ctx.fillText('+', square.x + square.size / 8, square.y + square.size);
+                    ctx.drawImage(powerUpSprite, square.x, square.y, square.size, square.size);
                 }
             });
         }
