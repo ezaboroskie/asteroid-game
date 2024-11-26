@@ -373,22 +373,7 @@
         }
 
         resetButton.addEventListener('click', () => {
-            isGameOver = false;
-            squares = [];
-            bullets = [];
-            stars = [];
-            counter = 0;
-            level = 1;
-            hasPlusAppeared = false;
-            upgradedBullets = 0;
-            if (upgradeTimeout) clearTimeout(upgradeTimeout);
-            spawnInterval = 1000;
-            ship.x = gameSpace.x + gameSpace.size / 2;
-            resetButton.style.display = 'none';
-            clearInterval(spawnTimer);
-            spawnTimer = setInterval(createSquare, spawnInterval);
-            createStars();
-            requestAnimationFrame(animate);
+            location.reload()
         });
 
         let spawnTimer = setInterval(createSquare, spawnInterval);
